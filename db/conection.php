@@ -8,10 +8,10 @@ class Connection{
     private $charset;
 
     public function __construct(){
-        $this->host = 'localhost';
-        $this->db = 'vetemovil';
-        $this->user = 'root';
-        $this->password = "";
+        $this->host = 'sql308.epizy.com';
+        $this->db = 'epiz_34220649_vetemovil';
+        $this->user = 'epiz_34220649';
+        $this->password = "09J1U9vlOLePce";
         $this->charset = 'utf8mb4';
     }
 
