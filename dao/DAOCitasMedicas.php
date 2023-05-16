@@ -1,13 +1,13 @@
 <?php
 
 require_once 'DAOGeneral.php';
-require_once '../models/perfil.php';
+require_once '../models/citasMedicas.php';
 require_once '../responses/response.php';
 
-class DAOPerfil extends DAOGeneral{
+class DAOCitasMedicas extends DAOGeneral{
     
     public function insertar(IModel $obj){
-        if($obj instanceof Perfil){
+        if($obj instanceof CitasMedicas){
             return parent::insertar($obj);
         } else{
             Response::responseErrorInstancia($obj, $this->_obtenerInstanciaModelo());
@@ -15,7 +15,7 @@ class DAOPerfil extends DAOGeneral{
     }
 
     public function actualizar(IModel $obj) {
-        if($obj instanceof Perfil){
+        if($obj instanceof CitasMedicas){
             return parent::actualizar($obj);
         } else {
             return Response::responseErrorInstancia($obj, $this->_obtenerInstanciaModelo());
@@ -45,15 +45,15 @@ class DAOPerfil extends DAOGeneral{
     public function mapeoDatos(array $data){
         $obj = $this->_obtenerInstanciaModelo();
         $obj->setId($data['id']);
-        $obj->setNombreUsuario($data['nombre_usuario']);
-        $obj->setTelefono($data['telefono']);
-        $obj->setNombreMascota($data['nombre_mascota']);
-        $obj->setDescripcion($data['descripcion']);
+        $obj->setUbicacion($data['ubicacion']);
+        $obj->setHora($data['hora']);
+        $obj->setFecha($data['fecha']);
+        $obj->setIdDoctor($data['id_doctor']);
         return $obj;
     }
 
     protected function _obtenerInstanciaModelo(){
-        return new Perfil();
+        return new CitasMedicas();
     }
 }
 

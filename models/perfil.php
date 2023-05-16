@@ -67,13 +67,6 @@ class Perfil implements IModel{
         return $this->_primaryKey;
     }
 
-    public function mapeoDatos(array $data){
-        $this->setNombreUsuario($data['nombre_usuario']);
-        $this->setTelefono($data['telefono']);
-        $this->setNombreMascota($data['nombre_mascota']);
-        $this->setDescripcion($data['descripcion']);
-    }
-
 }
 
 ?>

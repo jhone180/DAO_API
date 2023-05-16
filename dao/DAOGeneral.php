@@ -40,6 +40,14 @@ abstract class DAOGeneral extends Connection implements IDataBase{
     /**
      * 
      */
+    public function consultarAll(){
+        $respuesta = $this->consultarValoresAll();
+        return $respuesta;
+    }
+
+    /**
+     * 
+     */
     public function eliminar($id){
         $respuesta = $this->validarParametroEliminar($id);
         return $respuesta;
@@ -110,6 +118,21 @@ abstract class DAOGeneral extends Connection implements IDataBase{
         $query = $this->connect()->prepare("SELECT * FROM $tabla WHERE $primaryKey = ?");
         $query->execute([$id]);
         $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
+        header('Content-Type: application/json');
+        $json = json_encode($resultado);
+        return $json;
+    }
+
+    /**
+     * 
+     */
+    public function consultarValoresAll(){
+        $obj = $this->_obtenerInstanciaModelo();
+        $tabla = $obj->getNomTabla();
+        $query = $this->connect()->prepare("SELECT * FROM $tabla");
+        $query->execute();
+        $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
+        header('Content-Type: application/json');
         $json = json_encode($resultado);
         return $json;
     }

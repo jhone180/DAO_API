@@ -28,7 +28,10 @@ class API{
     public function metodos(){
         switch($this->accion){
             case 'consultar':
-                $this->instancia->consultar($this->id);
+                echo $this->instancia->consultar($this->id);
+                break;
+            case 'consultarAll':
+                echo $this->instancia->consultarAll($this->id);
                 break;
             case 'eliminar':
                 echo $this->instancia->eliminar($this->id);

@@ -10,6 +10,8 @@ interface IDataBase{
 
     public function consultar($id);
 
+    public function consultarAll();
+
     public function eliminar($id);
 
 }
