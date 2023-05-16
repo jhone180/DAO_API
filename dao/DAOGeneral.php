@@ -131,8 +131,6 @@ abstract class DAOGeneral extends Connection implements IDataBase{
         $tabla = $obj->getNomTabla();
         $query = $this->connect()->prepare("SELECT * FROM $tabla");
         $query->execute();
-        print_r($this->connect()->errorInfo());
-        die();
         $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
         header('Content-Type: application/json');
         $json = json_encode($resultado);
